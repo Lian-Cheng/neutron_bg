@@ -15,3 +15,10 @@ compile_commands.json
 G4History.macro
 **/.gdb_history
 **/Testing
+ana_counter.cc
+ana_energy.cc
+ana_normalize.cc
+ana_positions.cc
+neutron_bkg_simulation.odp
+src/backup_2.C
+src/backup_original.C

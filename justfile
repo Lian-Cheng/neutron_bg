@@ -52,6 +52,12 @@ install-lib-quiet:
 
 run *ARGS: install
   #!/usr/bin/env sh
+  #nixGL -- ./install/neutron_bg/bin/neutron_bg "$@"
+  sh execute-with-nixgl-if-needed.sh ./install/neutron_bg/bin/neutron_bg "$@"
+  exit $?
+
+run-no-install *ARGS:
+  #!/usr/bin/env sh
   sh execute-with-nixgl-if-needed.sh ./install/neutron_bg/bin/neutron_bg "$@"
   exit $?
 

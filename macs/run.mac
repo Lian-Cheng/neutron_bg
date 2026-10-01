@@ -6,11 +6,11 @@
 # in the UI.
 
 
-/run/beamOn 10
+#/run/beamOn 10
 
 
 # /control/verbose 2
-# /run/verbose 2
+ /run/verbose 2
 # /event/verbose 0
 # /tracking/verbose 1
 # #

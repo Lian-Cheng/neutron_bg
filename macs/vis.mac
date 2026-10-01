@@ -1,6 +1,6 @@
 # Visualisation parameters in interactive session
 
-/control/verbose 0
+/control/verbose 2
 /control/saveHistory
 /run/verbose 0
 
@@ -29,7 +29,7 @@
 # Name
 /vis/set/textColour green
 /vis/set/textLayout right
-/vis/scene/add/text2D 0.9 -.9 24 ! ! example-00basic
+/vis/scene/add/text2D 0.9 -.9 24 ! ! Neutron bg
 # or, if your system does not support right-adjustment
 #/vis/scene/add/text2D 0 -.9 24 ! ! example-00basic
 /vis/set/textLayout    # Revert to normal (left adjusted) layout
@@ -37,11 +37,11 @@
 
 # Axes, scale, etc.
 /vis/scene/add/scale   # Simple scale line
-/vis/scene/add/axes    # Simple axes: x=red, y=green, z=blue.
+#/vis/scene/add/axes    # Simple axes: x=red, y=green, z=blue.
 /vis/scene/add/eventID # Drawn at end of event
 /vis/scene/add/date    # Date stamp
-/vis/scene/add/logo2D  # Simple logo
-/vis/scene/add/logo    # 3D logo
+#/vis/scene/add/logo2D  # Simple logo
+#/vis/scene/add/logo    # 3D logo
 
 # Frame
 /vis/set/colour red
@@ -53,16 +53,22 @@
 /vis/set/textColour white
 # Attach text to point in space
 #                    x  y z units font-size 2d-offset    the text
-/vis/scene/add/text 1.5 1 1   m      18        4 4       Corner of the box
+#/vis/scene/add/text 1.5 1 1   m      18        4 4       Corner of the box
 
 # Set colours, transparency and visibility
 
 #                              volume name  depth  visibility
 /vis/geometry/set/visibility      world       0       true
 
-#                        name  depth red green blue opacity
-/vis/geometry/set/colour world   0    0    0    1     .3
-/vis/geometry/set/colour bubble  0    1    0.6  0.6   .6
+#                        name        depth red green blue opacity
+/vis/geometry/set/colour world         0   0.0  0.0  1.0    0.3
+/vis/geometry/set/colour cathode       0   0.5  0.5  0.5    1.0
+/vis/geometry/set/colour teflon        0   1.0  1.0  0.0    0.5
+/vis/geometry/set/colour ring          0   1.0  0.0  0.0    0.8
+/vis/geometry/set/colour support_EL    0   0.5  0.5  0.5    0.5
+/vis/geometry/set/colour EL            0   0.5  0.5  0.5    0.8
+/vis/geometry/set/colour support_anode 0   0.5  0.5  0.5    0.5
+/vis/geometry/set/colour anode         0   0.5  0.5  0.5    0.8
 
 # Two different rendering options
 /vis/viewer/set/style wireframe # Ugly, but might be useful if you need to look inside a volume
@@ -75,6 +81,11 @@
 # Two different ways of setting the light source angle
 /vis/viewer/set/lightsThetaPhi  150 120
 /vis/viewer/set/lightsVector    2 3 4
+
+# cross sectional view
+#/vis/viewer/set/clipVolume true
+#/vis/viewer/set/clipPlane 1 0 0 1 0 cm
+#/vis/viewer/set/slipPlane 0 -1 0 0
 
 # Re-establish auto refreshing and verbosity:
 /vis/viewer/set/autoRefresh true
